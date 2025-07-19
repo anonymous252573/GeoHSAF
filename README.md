@@ -5,6 +5,6 @@
 ### Dataset
 We use three public longitudinal AD datasets: ADNI, OASIS and AIBL. In the 'Datasets' folder, we include the scripts to download and organize the MR images after downloading. The scripts should be run in the following order:
 - #### ADNI
-  (1) 
+  (1) Run the 'get_category_to_csv.py' file to extract subjects as .csv  (2)
 
 
