@@ -11,8 +11,8 @@ We use three public longitudinal AD datasets: ADNI, OASIS and AIBL. In the 'Data
 - #### AIBL
    **⚡(1)** Run 'get_subj_id_for_download.py' file to obtain subjects ID for downloading from LONI. **⚡(2)** After downloading the MRI scans, run 'convert_dcm_to_nii.py' to convert files to .nii **⚡(3)** 'remove_intermidiary_folder.py' for folder consistency. **⚡(4)** Run AIBL_data_preprocessed.py to organize files for segmentation. 
 
-  ### Segmentation
-  We use the FSL toolbox for the hippocampus segmentation. See procedures [here](https://web.mit.edu/fsl_v5.0.10/fsl/doc/wiki/FIRST(2f)StepByStep.html).
+### Segmentation
+We use the FSL toolbox for the hippocampus segmentation. See procedures [here](https://web.mit.edu/fsl_v5.0.10/fsl/doc/wiki/FIRST(2f)StepByStep.html).
 
   
 
