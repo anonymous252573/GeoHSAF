@@ -4,7 +4,6 @@ from scipy.io import savemat
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
 from geomstats.geometry.pre_shape import PreShapeSpace
-from geomstats.geometry.pre_shape import KendallShapeMetric
 from geomstats.learning.frechet_mean import FrechetMean
 import geomstats.backend as gs
 from collections import defaultdict
