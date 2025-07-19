@@ -17,6 +17,10 @@ We use the FSL toolbox for the hippocampus segmentation. See procedures [here](h
 ### Removal of Rigid Transformation, and Surface Matching
 All files for this are in the 'alignment_and_matching' folder
 **⚡(1)** Run 'from_vtk_to_off.py' to pass from .vtks to .off  **⚡(2)** Run 'normalization.py' and 'alignment.py' accordingly to remove rigid transformations and then **⚡(3)** 'non_rigid_matching.py' and 'extraction_of_matches_code.py' accordingly for surface matching. 
+
+### Mean and Tangent Projections
+
+
   
 
 
