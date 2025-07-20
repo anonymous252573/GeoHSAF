@@ -34,5 +34,5 @@ In the `binary_classification` folder, run the file `classification_datasetname`
 In the `multi_class_classification` folder, run the file `classification_multi_class_datasetname` for ADNI or AIBL as the case may be.
 
 ## Ablation Study Files
-
+Files are available in the `ablation_study` folder. 
 
