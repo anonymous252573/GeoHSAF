@@ -28,16 +28,16 @@ for condi in condis:
     def compute_mae(reconstructed_data, true_data):
         return np.mean(np.abs(reconstructed_data - true_data))
 
-    def pca_reconstruction(folder_a, folder_b, save_folder, save_best_pca_model_folder):
+    def pga_reconstruction(folder_a, folder_b, save_folder, save_best_pga_model_folder):
 
         files_b = sorted([f for f in os.listdir(folder_b) if f.endswith('.pkl')])
 
-        pca_models = []
+        pga_models = []
         explained_variances = []
         mse_train_list = []
         mse_test_list = []
 
-        # Step 2: Collect data from tangent folder for PCA
+        # Step 2: Collect data from tangent folder for PGA
         all_data_b = []
         metadata_b = []  # List to store (file_name, time_key) tuples for each sample
         for file in files_b:
@@ -56,16 +56,16 @@ for condi in condis:
         )
 
         for n_components in n_components_list: 
-            pca = PCA(n_components=n_components)
-            pca.fit(X_train)
+            pga = PCA(n_components=n_components)
+            pga.fit(X_train)
 
             # Transform both train and test data
-            X_train_pca = pca.transform(X_train)
-            X_test_pca = pca.transform(X_test)
+            X_train_pga = pga.transform(X_train)
+            X_test_pga = pga.transform(X_test)
 
             # Inverse transform
-            X_train_full = pca.inverse_transform(X_train_pca)
-            X_test_full = pca.inverse_transform(X_test_pca)
+            X_train_full = pga.inverse_transform(X_train_pga)
+            X_test_full = pga.inverse_transform(X_test_pga)
 
             # exponential map at the mean
             X_train_reconstructed = np.array([
@@ -107,23 +107,23 @@ for condi in condis:
                     mse_test.append(compute_mae(reconstructed_data, true_data))
 
             # Save model and errors
-            pca_models.append(pca)
-            explained_variances.append(np.sum(pca.explained_variance_ratio_))
+            pga_models.append(pga)
+            explained_variances.append(np.sum(pga.explained_variance_ratio_))
             mse_train_list.append(np.mean(mse_train))
             mse_test_list.append(np.mean(mse_test))
 
-            print(f"Components: {pca.n_components_} | Train MSE: {np.mean(mse_train)} | Test MSE: {np.mean(mse_test)}")
+            print(f"Components: {pga.n_components_} | Train MSE: {np.mean(mse_train)} | Test MSE: {np.mean(mse_test)}")
 
         # best model based on the error
-        best_pca_idx = np.argmin(mse_test_list)
-        best_pca = pca_models[best_pca_idx]
-        best_mse = mse_test_list[best_pca_idx]
+        best_pga_idx = np.argmin(mse_test_list)
+        best_pga = pga_models[best_pga_idx]
+        best_mse = mse_test_list[best_pga_idx]
 
         # save model
-        pca_dict = {'pca_model': best_pca}
-        save_path  = os.path.join(save_best_pca_model_folder, f'{condi}_pca_model.pkl')
+        pga_dict = {'pga_model': best_pga}
+        save_path  = os.path.join(save_best_pga_model_folder, f'{condi}_pga_model.pkl')
         with open(save_path, 'wb') as f:
-                pickle.dump(pca_dict, f)
+                pickle.dump(pga_dict, f)
 
         for filename in os.listdir(folder_b):
             if filename.endswith('.pkl'):
@@ -134,11 +134,11 @@ for condi in condis:
             new_dict = {} 
             for key, array in data_dict.items():
                 flat_array = array.reshape(-1)
-                transformed = best_pca.transform(flat_array.reshape(1, -1))[0]
+                transformed = best_pga.transform(flat_array.reshape(1, -1))[0]
                 new_dict[key] = transformed
         
             base_name = os.path.splitext(filename)[0]  # removes .pkl extension
-            save_name = f"{base_name}_pca_result.pkl"
+            save_name = f"{base_name}_pga_result.pkl"
             save_path = os.path.join(save_folder, save_name)
             with open(save_path, 'wb') as f:
                 pickle.dump(new_dict, f)
@@ -166,7 +166,7 @@ for condi in condis:
     tangent_folder = r'C:\.....\ADNI\After_matching\{}_tangent_data'.format(condi)
     output_folder = r'C:\.....\ADNI\After_matching\{}_PGA_tangent_data'.format(condi)
     os.makedirs(output_folder, exist_ok=True)
-    save_pca_folder = r'C:\.....\ADNI\After_matching\{}_PGA_model'.format(condi)
-    os.makedirs(save_pca_folder, exist_ok=True)
+    save_pga_folder = r'C:\.....\ADNI\After_matching\{}_PGA_model'.format(condi)
+    os.makedirs(save_pga_folder, exist_ok=True)
 
-    pca_reconstruction(original_folder, tangent_folder, output_folder, save_pca_folder)
+    pga_reconstruction(original_folder, tangent_folder, output_folder, save_pga_folder)
