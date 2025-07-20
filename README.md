@@ -25,8 +25,11 @@ In the 'mean_and_tangent_projections' folder, run the file 'karcher_mean_and_tan
 In the 'interpolation' folder, run accordingly **⚡(1)**  the file 'pga.py' for PGA,  and  **⚡(2)** the file 'gpr_datasetname' for ADNI, OASIS or AIBL interpolation as the case may be.
 
 ### Binary Classification
-In the 'binary_classification' folder, run the file 'classification_datasetname' for ADNI, OASIS or AIBL interpolation as the case may be.
+In the 'binary_classification' folder, run the file 'classification_datasetname' for ADNI, OASIS or AIBL as the case may be.
 
 ### Mulit-Class Classification
+In the 'multi_class_classification' folder, run the file 'classification_multi_class_datasetname' for ADNI or AIBL as the case may be.
+
+### Ablation Study Files
 
 
