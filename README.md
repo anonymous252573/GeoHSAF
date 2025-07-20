@@ -22,7 +22,7 @@ All files for this are in the 'alignment_and_matching' folder
 In the 'mean_and_tangent_projections' folder, run the file 'karcher_mean_and_tangent.py' to compute the mean and projection to tangent space at the mean. 
 
 ### Interpolation
-
+In the 'interpolation' folder, run accordingly **⚡(1)**  the file 'pga.py' for PGA,  and  **⚡(2)** the file 'gpr_dataset_name' for ADNI, OASIS or AIBL as the case may be.
 
   
 
