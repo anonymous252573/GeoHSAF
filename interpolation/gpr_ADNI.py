@@ -71,8 +71,8 @@ def load_pkl_data(folder, time_map):
 condis = ['AD', 'CN', 'MCI']
 for condi in condis:
 
-    data_folder = r'C:\Users\......\ADNI\After_matching\{}_PGA_tangent_data'.format(condi) 
-    save_folder = r'C:\Users\.......\ADNI\After_matching\{}_interpolated_PGA_tangent_data'.format(condi)
+    data_folder = r'C:\Users\......\ADNI\After_matching\{}_PCA_tangent_data'.format(condi) 
+    save_folder = r'C:\Users\.......\ADNI\After_matching\{}_interpolated_PCA_tangent_data'.format(condi)
     os.makedirs(save_folder, exist_ok=True) 
 
     # Dynamically build time map

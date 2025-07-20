@@ -164,7 +164,7 @@ for condi in condis:
 
     original_folder = r"C:\.....\ADNI\After_matching\{}_orig_shape_space".format(condi)
     tangent_folder = r'C:\.....\ADNI\After_matching\{}_tangent_data'.format(condi)
-    output_folder = r'C:\.....\ADNI\After_matching\{}_PGA_tangent_data'.format(condi)
+    output_folder = r'C:\.....\ADNI\After_matching\{}_PCA_tangent_data'.format(condi)
     os.makedirs(output_folder, exist_ok=True)
     save_pga_folder = r'C:\.....\ADNI\After_matching\{}_PGA_model'.format(condi)
     os.makedirs(save_pga_folder, exist_ok=True)
