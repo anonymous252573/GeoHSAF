@@ -19,6 +19,9 @@ All files for this are in the 'alignment_and_matching' folder
 **⚡(1)** Run 'from_vtk_to_off.py' to pass from .vtks to .off  **⚡(2)** Run 'normalization.py' and 'alignment.py' accordingly to remove rigid transformations and then **⚡(3)** 'non_rigid_matching.py' and 'extraction_of_matches_code.py' accordingly for surface matching. 
 
 ### Mean and Tangent Projections
+In the 'mean_and_tangent_projections' folder, run the file 'karcher_mean_and_tangent.py' to compute the mean and projection to tangent space at the mean. 
+
+### Interpolation
 
 
   
